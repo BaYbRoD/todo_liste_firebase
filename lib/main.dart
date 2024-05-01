@@ -2,14 +2,32 @@ import 'package:flutter/material.dart';
 
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
+// ignore: depend_on_referenced_packages
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_liste_firebase/firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      print('User is currently signed out!');
+    } else {
+      print('User is signed in!');
+    }
+  });
+
   runApp(const MainApp());
+}
+
+Future<void> login() async {
+  final auth = FirebaseAuth.instance;
+
+  //auth.signInWithCredential();
 }
 
 class MainApp extends StatelessWidget {
@@ -58,7 +76,9 @@ class MainApp extends StatelessWidget {
                   ),
                   MaterialButton(
                     minWidth: double.infinity,
-                    onPressed: () {},
+                    onPressed: () {
+                      login();
+                    },
                     child: const Text('login'),
                     color: Colors.amber,
                     textColor: Colors.white,
