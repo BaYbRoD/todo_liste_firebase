@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:firebase_core/firebase_core.dart';
 // ignore: depend_on_referenced_packages
-import 'package:todo_liste_firebase/firebase_options.dart';
-import 'package:todo_liste_firebase/services/login_screen.dart';
+import 'package:todo_liste_firebase/config/firebase_options.dart';
+import 'package:todo_liste_firebase/views/auth/login_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

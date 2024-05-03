@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_liste_firebase/services/login_screen.dart';
+import 'package:todo_liste_firebase/views/auth/login_view.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
